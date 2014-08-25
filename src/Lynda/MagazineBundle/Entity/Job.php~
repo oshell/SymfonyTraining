@@ -1,0 +1,114 @@
+<?php
+
+namespace Lynda\MagazineBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Job
+ *
+ * @ORM\Table(name="jobs")
+ * @ORM\Entity(repositoryClass="Lynda\MagazineBundle\Entity\JobRepository")
+ */
+class Job
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $type;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $company;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $logo;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $url;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $position;
+    
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $location;
+    
+    /**
+     * @ORM\Column(type="string", length=4000)
+     */
+    protected $description;
+    
+    /**
+     * @ORM\Column(type="string", length=4000, name="how_to_apply")
+     */
+    protected $howToApply;
+    
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    protected $token;
+    
+    
+    /**
+     * @ORM\Column(type="boolean", name="is_public")
+     */
+    protected $isPublic;
+    
+    /**
+     * @ORM\Column(type="boolean", name="is_activated")
+     */
+    protected $isActivated;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $email;
+    
+    /**
+     * @ORM\Column(type="datetime", name="created_at")
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", name="updated_at")
+     */
+    protected $updatedAt;
+
+    /**
+     * @ORM\Column(type="datetime", name="expires_at")
+     */
+    protected $expiresAt;
+    
+    /**
+     * Set updated and created timestamps on object creation
+     */
+    public function __construct() {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+}

@@ -1,7 +1,9 @@
 {% extends '::base.html.twig' %}
 {% block title %} Issue List {% endblock %}
 
+    
 {% block body -%}
+
     <h1>Issues</h1>
 
     <table class="records_list table">
@@ -30,7 +32,29 @@
         {% endfor %}
         </tbody>
     </table>
+
             <a class = "btn btn-default" href="{{ path('issue_new') }}">
                 New Issue
             </a>
+    
+        <div class="tabs">
+            <ul>
+                <li class="selected"><a href="#one">Tennis</a></li>
+                <li><a href="#two">Football</a></li>
+                <li><a href="#three">Squash</a></li>
+            </ul>
+            <div class="tab one">
+                <p>Abcdefg
+                </p>
+            </div>
+            <div class="tab two">
+                <p>KLJHKJH
+                </p>
+            </div>
+            <div class="tab three">
+                <p>sjakdhgsajhdg
+                </p>
+            </div>
+    </div>
     {% endblock %}
+    

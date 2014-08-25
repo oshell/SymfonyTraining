@@ -1,0 +1,29 @@
+<?php
+
+namespace Lynda\MagazineBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Category
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Lynda\MagazineBundle\Entity\CategoryRepository")
+ */
+class Category
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    protected $name;
+    
+}
