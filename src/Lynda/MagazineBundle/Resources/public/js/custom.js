@@ -5,9 +5,9 @@
  */
 
 $('.tabs > ul li a').on('click', function() {
-    var that = ($this),
-    tabs = that.parent().parent().parent(),
-    target = $.trim(that.attr('href').sustring(1)),
+    var that = $(this),
+    tabs = that.parent().parent().parent();
+    target = $.trim(that.attr('href').sustring(1));
     items = tabs.find('ul li');
     
     items.removeClass('selected').find('a[href="#' + target + '"]').parent().addClass('selected');
